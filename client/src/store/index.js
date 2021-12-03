@@ -27,7 +27,8 @@ export const GlobalStoreActionType = {
     UNMARK_LIST_FOR_DELETION: "UNMARK_LIST_FOR_DELETION",
     SET_CURRENT_LIST: "SET_CURRENT_LIST",
     SET_ITEM_EDIT_ACTIVE: "SET_ITEM_EDIT_ACTIVE",
-    SET_LIST_NAME_EDIT_ACTIVE: "SET_LIST_NAME_EDIT_ACTIVE"
+    SET_LIST_NAME_EDIT_ACTIVE: "SET_LIST_NAME_EDIT_ACTIVE",
+    PUBLISH_COMMUNITY_LIST: "PUBLISH_COMMUNITY_LIST"
 }
 
 // WE'LL NEED THIS TO PROCESS TRANSACTIONS
@@ -43,7 +44,8 @@ function GlobalStoreContextProvider(props) {
         newListCounter: 0,
         listNameActive: false,
         itemActive: false,
-        listMarkedForDeletion: null
+        listMarkedForDeletion: null,
+        isPublished: false
     });
     const history = useHistory();
 
@@ -156,6 +158,17 @@ function GlobalStoreContextProvider(props) {
                     isItemEditActive: false,
                     listMarkedForDeletion: null
                 });
+            }
+            case GlobalStoreActionType.PUBLISH_COMMUNITY_LIST:{
+                return setStore({
+                    idNamePairs: store.idNamePairs,
+                    currentList: payload,
+                    newListCounter: store.newListCounter,
+                    isListNameEditActive: true,
+                    isItemEditActive: false,
+                    listMarkedForDeletion: null,
+                    isPublished: true
+                })
             }
             default:
                 return store;
@@ -327,7 +340,6 @@ function GlobalStoreContextProvider(props) {
             }
             store.currentList.items[end] = temp;
         }
-
         // NOW MAKE IT OFFICIAL
         store.updateCurrentList();
     }
@@ -345,6 +357,18 @@ function GlobalStoreContextProvider(props) {
                 payload: store.currentList
             });
         }
+    }
+    store.publishCommunityList = async function(){
+        console.log("publishing current list in store.index.js");
+        const response = await api.publishCommunityList(store.currentList);
+        if(response.status==200){
+            storeReducer({
+                type: GlobalStoreActionType.PUBLISH_COMMUNITY_LIST,
+                payload: store.currentList
+            });
+        }
+        else
+            console.log("failed to publish list");
     }
 
     store.undo = function () {

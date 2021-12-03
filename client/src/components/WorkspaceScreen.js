@@ -20,7 +20,7 @@ function WorkspaceScreen() {
         store.updateCurrentList();
     }
     const publishList=()=>{
-        
+        store.publishCommunityList();
     }
 
     let editItems = "";
