@@ -299,7 +299,7 @@ function GlobalStoreContextProvider(props) {
         }
     }
 
-    store.addMoveItemTransaction = function (start, end) {
+    /*store.addMoveItemTransaction = function (start, end) {
         let transaction = new MoveItem_Transaction(store, start, end);
         tps.addTransaction(transaction);
     }
@@ -308,7 +308,7 @@ function GlobalStoreContextProvider(props) {
         let oldText = store.currentList.items[index];
         let transaction = new UpdateItem_Transaction(store, index, oldText, newText);
         tps.addTransaction(transaction);
-    }
+    }*/
 
     store.moveItem = function (start, end) {
         start -= 1;
@@ -334,7 +334,7 @@ function GlobalStoreContextProvider(props) {
 
     store.updateItem = function (index, newItem) {
         store.currentList.items[index] = newItem;
-        store.updateCurrentList();
+        //store.updateCurrentList();
     }
 
     store.updateCurrentList = async function () {

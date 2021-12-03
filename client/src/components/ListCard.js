@@ -6,6 +6,9 @@ import EditIcon from '@mui/icons-material/Edit';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import TextField from '@mui/material/TextField';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
 /*
     This is a card in our list of top 5 lists. It lets select
@@ -78,29 +81,29 @@ function ListCard(props) {
             id={idNamePair._id}
             key={idNamePair._id}
             sx={{ marginTop: '15px', display: 'flex', p: 1 }}
-            style={{ width: '100%' }}
+            style={{ width: '100%'}}
             button
             onClick={(event) => {
                 handleLoadList(event, idNamePair._id)
+                //ADD VIEW
             }
             }
             style={{
                 fontSize: '48pt'
-            }}
-        >
+            }}>
+      
                 <Box sx={{ p: 1, flexGrow: 1 }}>{idNamePair.name}</Box>
-                <Box sx={{ p: 1 }}>
-                    <IconButton onClick={handleToggleEdit} aria-label='edit'>
-                        <EditIcon style={{fontSize:'48pt'}} />
-                    </IconButton>
-                </Box>
-                <Box sx={{ p: 1 }}>
+                <Box style={{height:'20%'}}sx={{ p: 1 , borderRadius: '12px'}}>
+                    <ThumbUpIcon></ThumbUpIcon>
+                    <ThumbDownIcon></ThumbDownIcon>
                     <IconButton onClick={(event) => {
                         handleDeleteList(event, idNamePair._id)
                     }} aria-label='delete'>
-                        <DeleteIcon style={{fontSize:'48pt'}} />
+                        <DeleteIcon style={{fontSize:'35pt'}} />
                     </IconButton>
+                    <ExpandMoreIcon style={{fontSize:'30pt'}}></ExpandMoreIcon>
                 </Box>
+                
         </ListItem>
 
     if (editActive) {

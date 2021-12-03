@@ -3,6 +3,10 @@ import Top5Item from './Top5Item.js'
 import List from '@mui/material/List';
 import { Typography } from '@mui/material'
 import { GlobalStoreContext } from '../store/index.js'
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box';
+
+
 /*
     This React component lets us edit a loaded list, which only
     happens when we are on the proper route.
@@ -11,6 +15,13 @@ import { GlobalStoreContext } from '../store/index.js'
 */
 function WorkspaceScreen() {
     const { store } = useContext(GlobalStoreContext);
+
+    const saveList=()=>{
+        store.updateCurrentList();
+    }
+    const publishList=()=>{
+        
+    }
 
     let editItems = "";
     if (store.currentList) {
@@ -39,7 +50,12 @@ function WorkspaceScreen() {
                 </div>
                 {editItems}
             </div>
+            <Box id="save-and-publish-buttons">
+                        <Button onClick={saveList}variant="contained">Save</Button>
+                        <Button onClick={publishList}variant="contained">Publish</Button>
+            </Box>
         </div>
+        
     )
 }
 

@@ -39,6 +39,12 @@ const HomeScreen = () => {
     }
     return (
         <div id="top5-list-selector">
+            <div id="list-selector-list">
+                {
+                    listCard
+                }
+                <MUIDeleteModal />
+            </div>
             <div id="list-selector-heading">
             <Fab 
                 color="primary" 
@@ -49,12 +55,6 @@ const HomeScreen = () => {
                 <AddIcon />
             </Fab>
                 <Typography variant="h2">Your Lists</Typography>
-            </div>
-            <div id="list-selector-list">
-                {
-                    listCard
-                }
-                <MUIDeleteModal />
             </div>
         </div>)
 }

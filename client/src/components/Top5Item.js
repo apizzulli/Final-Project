@@ -53,7 +53,7 @@ function Top5Item(props) {
         if (event.code === "Enter") {
             let index = event.target.id.substring("list-".length);
             let text = event.target.value;
-            store.addUpdateItemTransaction(index-1, text);
+            store.updateItem(index-1, text);
             toggleEdit();
         }
     }
