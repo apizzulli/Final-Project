@@ -53,6 +53,30 @@ body {
   border-style: solid;
   border-radius: 10px;
 }
+#welcome-screen {
+  background-image: linear-gradient(to bottom, #ccdce7, #5f8fb4);
+  color: white;
+  font-size: 5vw;
+  font-family:Arial, Helvetica, sans-serif; 
+ /* padding-left: 10%;*/
+  padding-top: 1%;
+  padding-bottom: 5%;
+  height:70%;
+  text-align: center;
+  vertical-align: center;
+}
+#welcome-button-container{
+  margin:0 auto !important;
+  height: 55%;
+  width: 75%;
+}
+#welcome-button{
+  font-size: 45px;
+  margin: 0 auto !important;
+  width: max-content;
+  text-align: left;
+}
+
 #splash-screen {
   background-image: linear-gradient(to bottom, #b8b808, #636723);
   color: white;

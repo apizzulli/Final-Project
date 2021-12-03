@@ -1,5 +1,5 @@
 import AppBanner from './AppBanner'
-import DeleteModal from './DeleteModal'
+import MUIDeleteModal from './MUIDeleteModal'
 import EditToolbar from './EditToolbar'
 import HomeScreen from './HomeScreen'
 import HomeWrapper from './HomeWrapper'
@@ -9,6 +9,7 @@ import RegisterScreen from './RegisterScreen'
 import SplashScreen from './SplashScreen'
 import Statusbar from './Statusbar'
 import Top5Item from './Top5Item'
+import WelcomeScreen from './WelcomeScreen'
 import WorkspaceScreen from './WorkspaceScreen'
 /*
     This serves as a module so that we can import
@@ -18,7 +19,7 @@ import WorkspaceScreen from './WorkspaceScreen'
 */
 export { 
     AppBanner, 
-    DeleteModal, 
+    MUIDeleteModal, 
     EditToolbar, 
     HomeScreen,
     HomeWrapper,
@@ -28,4 +29,5 @@ export {
     SplashScreen,
     Statusbar, 
     Top5Item, 
+    WelcomeScreen,
     WorkspaceScreen }
