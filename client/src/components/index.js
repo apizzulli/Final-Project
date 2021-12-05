@@ -1,7 +1,8 @@
 import AppBanner from './AppBanner'
+import AppToolbar from './AppToolbar'
 import MUIDeleteModal from './MUIDeleteModal'
 import EditToolbar from './EditToolbar'
-import HomeScreen from './HomeScreen'
+import ListsScreen from './ListsScreen'
 import HomeWrapper from './HomeWrapper'
 import ListCard from './ListCard'
 import LoginScreen from './LoginScreen'
@@ -19,9 +20,10 @@ import WorkspaceScreen from './WorkspaceScreen'
 */
 export { 
     AppBanner, 
+    AppToolbar,
     MUIDeleteModal, 
     EditToolbar, 
-    HomeScreen,
+    ListsScreen,
     HomeWrapper,
     ListCard, 
     LoginScreen,

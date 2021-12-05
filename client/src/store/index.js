@@ -42,6 +42,7 @@ function GlobalStoreContextProvider(props) {
         idNamePairs: [],
         currentList: null,
         newListCounter: 0,
+        publishedListsCounter: 0,
         listNameActive: false,
         itemActive: false,
         listMarkedForDeletion: null,
@@ -360,7 +361,14 @@ function GlobalStoreContextProvider(props) {
     }
     store.publishCommunityList = async function(){
         console.log("publishing current list in store.index.js");
-        const response = await api.publishCommunityList(store.currentList);
+        let today = new Date();
+        const response = await api.publishCommunityList(
+                            store.publishedListsCounter, 
+                            store.currentList.name, 
+                            0, 0, 
+                            today,today,today,
+                            store.currentList.items,
+                            store.currentList.ownerEmail );
         if(response.status==200){
             storeReducer({
                 type: GlobalStoreActionType.PUBLISH_COMMUNITY_LIST,
@@ -370,21 +378,11 @@ function GlobalStoreContextProvider(props) {
         else
             console.log("failed to publish list");
     }
-
-    store.undo = function () {
-        tps.undoTransaction();
-    }
-
-    store.redo = function () {
-        tps.doTransaction();
-    }
-
-    store.canUndo = function() {
-        return tps.hasTransactionToUndo();
-    }
-
-    store.canRedo = function() {
-        return tps.hasTransactionToRedo();
+    store.addLike= async function(id,communityList){
+        const response = await api.addLike(id,communityList);
+        if(response.status==200){
+            console.log("LIKED!");
+        }
     }
 
     // THIS FUNCTION ENABLES THE PROCESS OF EDITING A LIST NAME
@@ -402,7 +400,21 @@ function GlobalStoreContextProvider(props) {
             payload: null
         });
     }
+    store.undo = function () {
+        tps.undoTransaction();
+    }
 
+    store.redo = function () {
+        tps.doTransaction();
+    }
+
+    store.canUndo = function() {
+        return tps.hasTransactionToUndo();
+    }
+
+    store.canRedo = function() {
+        return tps.hasTransactionToRedo();
+    }
     return (
         <GlobalStoreContext.Provider value={{
             store

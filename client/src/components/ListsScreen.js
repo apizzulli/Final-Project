@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography'
     
     @author McKilla Gorilla
 */
-const HomeScreen = () => {
+const ListsScreen = () => {
     const { store } = useContext(GlobalStoreContext);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const HomeScreen = () => {
     let listCard = "";
     if (store) {
         listCard = 
-            <List sx={{ width: '90%', left: '5%', bgcolor: 'background.paper' }}>
+            <div style={{ }}>
             {
                 store.idNamePairs.map((pair) => (
                     <ListCard
@@ -35,28 +35,17 @@ const HomeScreen = () => {
                     />
                 ))
             }
-            </List>;
+            </div>;
     }
     return (
-        <div id="top5-list-selector">
-            <div id="list-selector-list">
+            <div id="lists-screen">
                 {
                     listCard
                 }
                 <MUIDeleteModal />
             </div>
-            <div id="list-selector-heading">
-            <Fab 
-                color="primary" 
-                aria-label="add"
-                id="add-list-button"
-                onClick={handleCreateNewList}
-            >
-                <AddIcon />
-            </Fab>
-                <Typography variant="h2">Your Lists</Typography>
-            </div>
-        </div>)
+            
+        )
 }
 
-export default HomeScreen;
+export default ListsScreen;

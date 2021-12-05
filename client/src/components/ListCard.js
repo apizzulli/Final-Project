@@ -67,7 +67,12 @@ function ListCard(props) {
     function handleUpdateText(event) {
         setText(event.target.value);
     }
-
+    function addLike(event){
+        console.log("addLike in ListCard");
+        event.stopPropagation();
+        let _id=event.target.id;
+        store.addLike(_id);
+    }
     let selectClass = "unselected-list-card";
     if (selected) {
         selectClass = "selected-list-card";
@@ -77,39 +82,33 @@ function ListCard(props) {
         cardStatus = true;
     }
     let cardElement =
-        <ListItem
+        <div
             id={idNamePair._id}
             key={idNamePair._id}
-            sx={{ marginTop: '15px', display: 'flex', p: 1 }}
-            style={{ width: '100%'}}
+            sx={{ p: 1, boxShadow: 1,borderRadius: 1, color:'white',fontSize:'48pt'}}
             button
-            onClick={(event) => {
-                handleLoadList(event, idNamePair._id)
-                //ADD VIEW
-            }
-            }
             style={{
-                fontSize: '48pt'
+                fontSize: '48pt', width:'100%'
             }}>
-      
-                <Box sx={{ p: 1, flexGrow: 1 }}>{idNamePair.name}</Box>
-                <Box style={{height:'20%'}}sx={{ p: 1 , borderRadius: '12px'}}>
-                    <ThumbUpIcon></ThumbUpIcon>
-                    <ThumbDownIcon></ThumbDownIcon>
-                    <IconButton onClick={(event) => {
-                        handleDeleteList(event, idNamePair._id)
-                    }} aria-label='delete'>
-                        <DeleteIcon style={{fontSize:'35pt'}} />
-                    </IconButton>
-                    <ExpandMoreIcon style={{fontSize:'30pt'}}></ExpandMoreIcon>
-                </Box>
-                
-        </ListItem>
+            <Box sx={{ paddingTop: '2%', paddingLeft: '1%',pp: 1, color:'white', display: 'inline-block'}}>
+                {idNamePair.name}</Box>
+            <Box style={{float: 'right', marginRight: '20px'}}>
+                <ThumbUpIcon onClick={addLike} style={{fontSize: '40pt', color:'white', display: 'in-line block'}}></ThumbUpIcon>
+                <ThumbDownIcon style={{fontSize: '40pt', color: 'white',marginRight:'100px'}}></ThumbDownIcon>
+                <IconButton style={{color:'white'}}onClick={(event) => {
+                    handleDeleteList(event, idNamePair._id)
+                }} aria-label='delete'>
+                    <DeleteIcon style={{fontSize:'35pt', color: 'white'}} />
+                </IconButton>
+                <ExpandMoreIcon onClick={(event) => {handleLoadList(event, idNamePair._id)}}style={{fontSize:'30pt',color:'white'}}></ExpandMoreIcon>
+            </Box>
+        </div>
 
-    if (editActive) {
+   /* if (editActive) {
         cardElement =
-            <TextField
+            <div
                 margin="normal"
+                style={{color: 'white'}}
                 required
                 fullWidth
                 id={"list-" + idNamePair._id}
@@ -124,7 +123,7 @@ function ListCard(props) {
                 InputLabelProps={{style: {fontSize: 24}}}
                 autoFocus
             />
-    }
+    }*/
     return (
         cardElement
     );

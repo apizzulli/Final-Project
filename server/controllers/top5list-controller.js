@@ -1,5 +1,6 @@
 const Top5List = require('../models/top5list-model');
 const User = require('../models/user-model');
+const CommunityList = require('../models/communityList-model')
 
 createTop5List = (req, res) => {
     const body = req.body;
@@ -208,6 +209,84 @@ updateTop5List = async (req, res) => {
         asyncFindUser(top5List);
     })
 }
+publishCommunityList= (req,res) =>{  
+    console.log("publishCommunityList in communityLists controller...");
+    const body = req.body;
+    if (!body) {
+        return res.status(400).json({
+            errorMessage: 'Improperly formatted request',
+        })
+    }
+
+    const communityList = new CommunityList(body);
+    console.log("creating communityList: " + JSON.stringify(communityList));
+    if (!communityList) {
+        return res.status(400).json({
+            errorMessage: 'Improperly formatted request',
+        })
+    }
+
+    console.log("communityList created for " + req.userId);
+    User.findOne({ _id: req.userId }, (err, user) => {
+        console.log("user found: " + JSON.stringify(user));
+        user.communityLists.push(communityList._id);
+        user
+            .save()
+            .then(() => {
+                communityList
+                    .save()
+                    .then(() => {
+                        return res.status(201).json({
+                            communityList: communityList
+                        })
+                    })
+                    .catch(error => {
+                        return res.status(400).json({
+                            errorMessage: 'Community List Not Created!'
+                        })
+                    })
+            });
+    })
+}
+
+addLike = (req,res)=>{
+    
+    let likes = req.body.likes+1;   //Add one to the like count
+    console.log("likes: "+likes);
+    CommunityList.findOne({ _id: req.params.id }, (err, communityList) => { //Find the given list in the database
+        console.log("communityList found: " + JSON.stringify(communityList));
+        communityList.likes=likes; //Update its like count
+        user.communityLists.push(communityList._id);
+        if (err) {
+            return res.status(404).json({
+                err,
+                message: 'Top 5 List not found!',
+            })
+        }
+        else{
+            return res.status(201).json({
+                communityList: communityList
+            })
+        }
+    });
+}
+getCommunityList=(req,res)=>{
+    CommunityList.findOne({ _id: req.params.id }, (err, communityList) => {
+        console.log("communityList found: " + JSON.stringify(communityList));
+        if (err) {
+            return res.status(404).json({
+                err,
+                message: 'Top 5 List not found!',
+            })
+        }
+        else{
+            return res.status(200).json({
+                success: true,
+                communityList: communityList
+            })
+        }
+    });
+}
 
 module.exports = {
     createTop5List,
@@ -215,5 +294,8 @@ module.exports = {
     getTop5ListById,
     getTop5ListPairs,
     getTop5Lists,
-    updateTop5List
+    updateTop5List, 
+    publishCommunityList,
+    addLike,
+    getCommunityList
 }

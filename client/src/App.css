@@ -6,12 +6,12 @@
     
         @author McKilla Gorilla
     */
-  --swatch-foundation: #eeeedd;
-  --swatch-primary: #e6e6e6;
-  --swatch-complement: #e1e4cb;
+  --swatch-foundation: #e1e4e670;
+  --swatch-primary: #9baaafb0;
+  --swatch-complement: #cbe2eb70;
   --swatch-contrast: #111111;
-  --swatch-accent: #669966;
-  --swatch-status: #123456;
+  --swatch-accent: #3885a3;
+  --swatch-status: #2a81b4;
   --my-font-family: "Robaaaoto";
   --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
 }
@@ -24,20 +24,24 @@ body {
   background-color: var(--swatch-primary);
   font-family: "Lexend Exa";
   position: absolute;
-  width: 80%;
-  left: 10%;
+  left: 5%;
+  right: 5%;
+  width:90%;
   height: 90%;
   top: 5%;
 }
 
 #app-root {
+  overflow-y: scroll;
   position: absolute;
-  width: 100%;
+  width: auto;
   height: 100%;
   top: 0%;
   left: 0%;
 }
-
+#app-toolbar{
+  background-color: var(--swatch-primary);
+}
 #top5-banner {
   position: absolute;
   left: 0%;
@@ -54,7 +58,8 @@ body {
   border-radius: 10px;
 }
 #welcome-screen {
-  background-image: linear-gradient(to bottom, #ccdce7, #5f8fb4);
+  width: auto;
+  background-image: linear-gradient(to bottom, #c2e6f5, #5f9cb4);
   color: white;
   font-size: 5vw;
   font-family:Arial, Helvetica, sans-serif; 
@@ -120,9 +125,10 @@ body {
 
 #top5-list-selector {
   position: absolute;
+  overflow: hidden;
   left: 0%;
   top: 10%;
-  width: 100%;
+  width: 80%;
   height: 80%;
   background-color: var(--swatch-primary);
 }
@@ -142,7 +148,7 @@ body {
   top: 90%;
   width: 100%;
   height: 10%;
-  background-color: lightsalmon;
+  background-color: var(--swatch-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,15 +173,14 @@ body {
   float: left;
 }
 
-#list-selector-list {
+#lists-screen {
+  background: linear-gradient(to bottom, #c2e6f5, #5f9cb4) ;
   position: absolute;
   left: 0%;
-  top: 10%;
   width: 100%;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
+  height: 70%;
+  padding-top: 3%;
+  overflow-y: scroll;
 }
 
 .list-card,
@@ -184,6 +189,7 @@ body {
   font-size: 18pt;
   margin: 10px;
   padding: 20px;
+  padding-bottom: 5%;
   border-radius: 25px;
   height:500px;
 }
@@ -198,7 +204,7 @@ body {
 
 .unselected-list-card:hover {
   cursor: pointer;
-  background-color: var(--swatch-contrast);
+  background-color: var(--swatch-accent);
   color: white;
 }
 
@@ -208,7 +214,7 @@ body {
 }
 
 .unselected-list-card {
-  background-color: var(--swatch-complement);
+  background-color: var(--swatch-accent);
 }
 
 .list-card-button {

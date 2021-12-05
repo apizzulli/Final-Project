@@ -9,5 +9,7 @@ router.get('/top5list/:id', auth.verify, Top5ListController.getTop5ListById)
 router.get('/top5listpairs', auth.verify, Top5ListController.getTop5ListPairs)
 router.get('/top5lists', auth.verify, Top5ListController.getTop5Lists)
 router.put('/top5list/:id', auth.verify, Top5ListController.updateTop5List)
-
+router.post('/communityList',auth.verify, Top5ListController.publishCommunityList)
+router.put('/addLike',auth.verify, Top5ListController.addLike)
+router.get('/communityList/:id',auth.verify,Top5ListController.getCommunityList)
 module.exports = router

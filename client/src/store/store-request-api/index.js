@@ -22,16 +22,12 @@ const api = axios.create({
 // WORK, AND SOME REQUIRE DATA, WHICH WE WE WILL FORMAT HERE, FOR WHEN
 // WE NEED TO PUT THINGS INTO THE DATABASE OR IF WE HAVE SOME
 // CUSTOM FILTERS FOR QUERIES
-export const createTop5List = (newListName, newItems, userEmail, likes,dislikes,date) => {
+export const createTop5List = (newListName, newItems, userEmail) => {
     return api.post(`/top5list/`, {
         // SPECIFY THE PAYLOAD
         name: newListName,
         items: newItems,
-        ownerEmail: userEmail,
-        likes: likes,
-        dislikes: dislikes,
-        //comments: {type: Map of }
-        publishedDate: date
+        ownerEmail: userEmail
     })
 }
 export const deleteTop5ListById = (id) => api.delete(`/top5list/${id}`)
@@ -43,18 +39,35 @@ export const updateTop5ListById = (id, top5List) => {
         top5List : top5List
     })
 }
-export const publishCommunityList=(top5list)=>{
-    return api.post(`/communityList`,{
-        top5list: top5list
+export const publishCommunityList=(key,name,likes,dislikes,createdDate,modifiedDate,accessedDate,items,ownerEmail)=>{
+    return api.post(`/communityList/`,{
+        key: key,
+        name: name,
+        likes: likes,
+        dislikes: dislikes,
+        createdDate: createdDate,
+        modifiedDate: modifiedDate,
+        accessedDate: accessedDate,
+        items: items,
+        ownerEmail: ownerEmail
     })
 }
+export const addLike=(id,communityList)=>{
+    return api.put(`/addLike/${id}`,{
+        communityList: communityList
+    })
+}
+export const getCommunityList=(id)=>api.get(`/top5list/${id}`)
+
 const apis = {
     createTop5List,
     deleteTop5ListById,
     getTop5ListById,
     getTop5ListPairs,
     updateTop5ListById,
-    publishCommunityList
+    getCommunityList,
+    publishCommunityList,
+    addLike
 }
 
 export default apis
