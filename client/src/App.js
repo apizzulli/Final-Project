@@ -28,7 +28,7 @@ const App = () => {
         <BrowserRouter>
             <AuthContextProvider>
                 <GlobalStoreContextProvider>              
-                    <AppBanner />
+                    <AppBanner style={{backgroundColor:'black'}} />
                     <AppToolbar/>
                     <Switch>
                         <Route path="/" exact component={HomeWrapper} />

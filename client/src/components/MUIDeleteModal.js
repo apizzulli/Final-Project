@@ -4,7 +4,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
-const style = {
+/*const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -14,12 +14,13 @@ const style = {
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
-};
+};*/
 
 export default function MUIDeleteModal() {
     const { store } = useContext(GlobalStoreContext);
     let name = "";
     if (store.listMarkedForDeletion) {
+        console.log("DELETE");
         name = store.listMarkedForDeletion.name;
     }
     function handleDeleteList(event) {
@@ -33,7 +34,7 @@ export default function MUIDeleteModal() {
         <Modal
             open={store.listMarkedForDeletion !== null}
         >
-            <Box sx={style}>
+            <Box >
                 <div className="modal-dialog">
                 <header className="dialog-header">
                     Delete the {name} Top 5 List?

@@ -13,6 +13,9 @@ export default function WelcomeScreen() {
     const registerClick=()=>{
         history.push('/register');
     }
+    const guestClick=()=>{
+        history.push('./')
+    }
     return (
         <div id="welcome-screen">
             Top 5 Lister
@@ -20,7 +23,7 @@ export default function WelcomeScreen() {
                 <br></br>
                     <div id="welcome-button"><AssignmentIndIcon fontSize="17%" onClick={loginClick}></AssignmentIndIcon>    Sign In</div>
                     <div id="welcome-button"><PersonAddIcon fontSize="17%" onClick={registerClick}></PersonAddIcon>    Create an account</div>
-                    <div id="welcome-button"><AccessTimeIcon fontSize="17%"></AccessTimeIcon>  Continue as guest</div>
+                    <div id="welcome-button"><AccessTimeIcon fontSize="17%"onClick={guestClick}></AccessTimeIcon>  Continue as guest</div>
                     <Typography style={{paddingTop: "22%"}}>
                         Developed by Anthony Pizzulli.
                     </Typography>

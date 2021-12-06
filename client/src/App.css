@@ -7,7 +7,7 @@
         @author McKilla Gorilla
     */
   --swatch-foundation: #e1e4e670;
-  --swatch-primary: #9baaafb0;
+  --swatch-primary: #a0b4bba8;
   --swatch-complement: #cbe2eb70;
   --swatch-contrast: #111111;
   --swatch-accent: #3885a3;
@@ -22,7 +22,7 @@ body {
 
 #root {
   background-color: var(--swatch-primary);
-  font-family: "Lexend Exa";
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: absolute;
   left: 5%;
   right: 5%;
@@ -42,27 +42,12 @@ body {
 #app-toolbar{
   background-color: var(--swatch-primary);
 }
-#top5-banner {
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  width: 100%;
-  height: 10%;
-  float: left;
-  background-image: linear-gradient(to bottom, #b8b808, #636723);
-  color: white;
-  font-size: 48pt;
-  border-color: black;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 10px;
-}
+
 #welcome-screen {
   width: auto;
   background-image: linear-gradient(to bottom, #c2e6f5, #5f9cb4);
   color: white;
   font-size: 5vw;
-  font-family:Arial, Helvetica, sans-serif; 
  /* padding-left: 10%;*/
   padding-top: 1%;
   padding-bottom: 5%;
@@ -80,22 +65,6 @@ body {
   margin: 0 auto !important;
   width: max-content;
   text-align: left;
-}
-
-#splash-screen {
-  background-image: linear-gradient(to bottom, #b8b808, #636723);
-  color: white;
-  font-size: 5vw;
-  border-color: black;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 10px;
-  padding-left: 10%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  height:70%;
-  text-align: center;
-  vertical-align: center;
 }
 
 #edit-toolbar {
@@ -154,23 +123,19 @@ body {
   justify-content: center;
   font-size: 36pt;
 }
-
-#list-selector-heading {
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  width: 100%;
-  height: 10%;
-  text-align: center;
-  font-size: 24pt;
-  font-weight: bold;
+#lists-screen{
   display: flex;
-  align-items: center;
-  justify-content: center;
+}
+#add-list-footer{
+  width:20%;
+  height:10%;
+  bottom:10px;
+  display: inline-block;
 }
 
 #add-list-button {
   float: left;
+  color:#3885a3;
 }
 
 #lists-screen {

@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import AuthContext from '../auth';
 import { useContext } from 'react'
+import GlobalStoreContext from '../store';
 
 function Copyright(props) {
   return (
@@ -32,6 +33,7 @@ const theme = createTheme();
 
 export default function SignIn() {
     const { auth } = useContext(AuthContext);
+    const {store}=useContext(GlobalStoreContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -40,7 +42,7 @@ export default function SignIn() {
             formData.get('email'),
             formData.get('password')
         );
-
+        store.loadLists();
     };
 
   return (
@@ -101,7 +103,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link to='/register/' href='/register/' variant="body2" > 
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

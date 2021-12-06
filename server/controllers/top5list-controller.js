@@ -249,26 +249,97 @@ publishCommunityList= (req,res) =>{
     })
 }
 
-addLike = (req,res)=>{
-    
-    let likes = req.body.likes+1;   //Add one to the like count
-    console.log("likes: "+likes);
-    CommunityList.findOne({ _id: req.params.id }, (err, communityList) => { //Find the given list in the database
-        console.log("communityList found: " + JSON.stringify(communityList));
-        communityList.likes=likes; //Update its like count
-        user.communityLists.push(communityList._id);
+addLike = async (req, res) => {
+    const body = req.body
+    if (!body) {
+        return res.status(400).json({
+            success: false,
+            error: 'You must provide a list to update',
+        })
+    }
+
+    Top5List.findOne({ _id: req.params.id }, (err, top5List) => {
+        console.log("top5List found: " + JSON.stringify(top5List));
         if (err) {
             return res.status(404).json({
                 err,
                 message: 'Top 5 List not found!',
             })
         }
-        else{
-            return res.status(201).json({
-                communityList: communityList
+
+        // DOES THIS LIST BELONG TO THIS USER?
+        async function asyncFindUser(list) {
+            await User.findOne({ email: list.ownerEmail }, (err, user) => {
+                console.log("req.body.likes: " + req.body.likes);
+                let n=body.top5List.likes+1;
+                list.likes=n;
+                list
+                    .save()
+                    .then(() => {
+                        console.log("SUCCESS!!!");
+                        return res.status(200).json({
+                            success: true,
+                            id: list._id,
+                            message: 'Top 5 List updated!',
+                        })
+                    })
+                    .catch(error => {
+                        console.log("FAILURE: " + JSON.stringify(error));
+                        return res.status(404).json({
+                            error,
+                            message: 'Top 5 List not updated!',
+                        })
+                    })
+            });
+        }
+        asyncFindUser(top5List);
+    })
+}
+addDislike = async (req, res) => {
+    const body = req.body
+    if (!body) {
+        return res.status(400).json({
+            success: false,
+            error: 'You must provide a list to update',
+        })
+    }
+
+    Top5List.findOne({ _id: req.params.id }, (err, top5List) => {
+        console.log("top5List found: " + JSON.stringify(top5List));
+        if (err) {
+            return res.status(404).json({
+                err,
+                message: 'Top 5 List not found!',
             })
         }
-    });
+
+        // DOES THIS LIST BELONG TO THIS USER?
+        async function asyncFindUser(list) {
+            await User.findOne({ email: list.ownerEmail }, (err, user) => {
+                console.log("req.body.dislikes: " + req.body.dislikes);
+                let n=body.top5List.dislikes+1;
+                list.dislikes=n;
+                list
+                    .save()
+                    .then(() => {
+                        console.log("SUCCESS!!!");
+                        return res.status(200).json({
+                            success: true,
+                            id: list._id,
+                            message: 'Top 5 List updated!',
+                        })
+                    })
+                    .catch(error => {
+                        console.log("FAILURE: " + JSON.stringify(error));
+                        return res.status(404).json({
+                            error,
+                            message: 'Top 5 List not updated!',
+                        })
+                    })
+            });
+        }
+        asyncFindUser(top5List);
+    })
 }
 getCommunityList=(req,res)=>{
     CommunityList.findOne({ _id: req.params.id }, (err, communityList) => {
@@ -297,5 +368,6 @@ module.exports = {
     updateTop5List, 
     publishCommunityList,
     addLike,
+    addDislike,
     getCommunityList
 }
