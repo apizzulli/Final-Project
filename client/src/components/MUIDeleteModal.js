@@ -32,7 +32,7 @@ export default function MUIDeleteModal() {
 
     return (
         <Modal
-            open={store.listMarkedForDeletion !== null}
+            open={store.listMarkedForDeletion != null}
         >
             <Box >
                 <div className="modal-dialog">

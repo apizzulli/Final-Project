@@ -42,7 +42,6 @@ export default function SignIn() {
             formData.get('email'),
             formData.get('password')
         );
-        store.loadLists();
     };
 
   return (
