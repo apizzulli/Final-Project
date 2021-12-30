@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography'
     @author McKilla Gorilla
 */
 const ListsScreen = () => {
+    let list;
     let name;
     let id;
     let author;
@@ -49,6 +50,7 @@ const ListsScreen = () => {
                 ))*/
                 store.lists.map((list) => (
                     <ListCard
+                        list={list}
                         id={list._id}
                         name={list.name}
                         author={list.authorx}

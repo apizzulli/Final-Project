@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import TextField from '@mui/material/TextField';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import { Typography } from '@mui/material';
@@ -23,10 +24,11 @@ function ListCard(props) {
     const [editActive, setEditActive] = useState(false);
     const [isExpanded, setExpanded] = useState(false);
     const [text, setText] = useState("");
-    const { name,id,author,likes,dislikes,date,selected} = props;
+    const { list, name,id,author,likes,dislikes,date,selected} = props;
 
-    function handleLoadList(event, id) {
-        console.log("handleLoadList for " + id);
+    function handleExpandList(event, id) {
+        setExpanded(!isExpanded);
+       /* console.log("handleLoadList for " + id);
         if (!event.currentTarget.disabled) {
             let _id = event.currentTarget.id;
             if (_id.indexOf('list-card-text-') >= 0)
@@ -35,7 +37,7 @@ function ListCard(props) {
 
             // CHANGE THE CURRENT LIST
             store.setCurrentList(id);
-        }
+        }*/
     }
 
     function handleToggleEdit(event) {
@@ -83,108 +85,106 @@ function ListCard(props) {
     if (selected) {
         selectClass = "selected-list-card";
     }
-    
+    function handleHover(event){
+        event.target.style.background='#768b9456';
+    }
+    function hoverReset(event){
+        event.target.style.background='none';
+    }
+    let listCard;
     let cardStatus = false;
     if (store.isListNameEditActive) {
         cardStatus = true;
     }
-    
-    // let cardElement =
-    //     <div
-    //         id={id}
-    //         key={id}
-    //         sx={{ p: 1, boxShadow: 1, color:'white',fontSize:'48pt', width:'100%'}}
-    //         button
-    //         style={{
-    //             borderRadius: '10px',margin: '0 auto',left:'2.5%',
-    //             right:'2.5%',width:'95%', height:'150px', backgroundColor:'#a0b4bb94', marginBottom:'15px'
-    //         }}>
-    //         <Box sx={{ float:'left',paddingTop: '2%', paddingLeft: '1%',pp: 1, color:'white', display: 'inline-block', fontSize:'25pt'}}>
-    //             {name}
-    //             <Typography style={{marginTop:'20px'}}>
-    //                 Author: {author}
-    //             </Typography>
-    //             <Typography>
-    //                 Published: {date}
-    //             </Typography>
-    //         </Box>
-    //         <Box style={{paddingTop:'2%',float:'right'}}>
-    //             <Box style={{float:'left',marginRight:'550px',color:'white'}}>
-    //                 <div style={{display:'inline-block',marginRight:'20px'}}>
-    //                     <ThumbUpIcon id = {id} style={{fontSize:'40pt',display:'inline-block'}}onClick={addLike} ></ThumbUpIcon>
-    //                     {likes}
-    //                 </div>
-    //                 <div style={{display:'inline-block'}}>
-    //                     <ThumbDownIcon id={id}style={{fontSize:'40pt',display:'inline-block'}}onClick={addDislike}></ThumbDownIcon>
-    //                     {dislikes}
-    //                 </div>
-    //             </Box>
-    //             <IconButton onClick={(event) => {handleDeleteList(event, id)}} aria-label='delete'>
-    //                 <DeleteIcon style={{fontSize:'40pt', color: 'white'}} />
-    //             </IconButton>
-    //             <ExpandMoreIcon onClick={(event) => {handleLoadList(event, id)}}style={{float:'right',fontSize:'40pt',color:'white'}}></ExpandMoreIcon>
-    //         </Box>
-    //     </div>
-
-   /* if (editActive) {
-        cardElement =
-            <div
-                margin="normal"
-                style={{color: 'white'}}
-                required
-                fullWidth
-                id={"list-" + idNamePair._id}
-                label="Top 5 List Name"
-                name="name"
-                autoComplete="Top 5 List Name"
-                className='list-card'
-                onKeyPress={handleKeyPress}
-                onChange={handleUpdateText}
-                defaultValue={idNamePair.name}
-                inputProps={{style: {fontSize: 48}}}
-                InputLabelProps={{style: {fontSize: 24}}}
-                autoFocus
-            />
-    }*/
-    console.log(props);
-    return (
-        //cardElement
-        <div
-            id={id}
-            key={id}
-            sx={{ p: 1, boxShadow: 1, color:'white',fontSize:'48pt', width:'100%'}}
-            button
-            style={{
-                borderRadius: '10px',margin: '0 auto',left:'2.5%',
-                right:'2.5%',width:'95%', height:'150px', backgroundColor:'#a0b4bb94', marginBottom:'15px'
-            }}>
-            <Box sx={{ float:'left',paddingTop: '2%', paddingLeft: '1%',pp: 1, color:'white', display: 'inline-block', fontSize:'25pt'}}>
-                {name}
-                <Typography style={{marginTop:'20px'}}>
-                    Author: {author}
-                </Typography>
-                <Typography>
-                    Published: {date/*.Prototype.getDate() + date.Prototype.getDay() +date.Prototype.getFullYear()}*/}
-                </Typography>
-            </Box>
-            <Box style={{paddingTop:'2%',float:'right'}}>
-                <Box style={{float:'left',marginRight:'550px',color:'white'}}>
-                    <div style={{display:'inline-block',marginRight:'20px'}}>
-                        <ThumbUpIcon id = {id} style={{fontSize:'40pt',display:'inline-block'}}onClick={addLike} ></ThumbUpIcon>
-                        {likes}
-                    </div>
-                    <div style={{display:'inline-block'}}>
-                        <ThumbDownIcon id={id}style={{fontSize:'40pt',display:'inline-block'}}onClick={addDislike}></ThumbDownIcon>
-                        {dislikes}
-                    </div>
+    if(isExpanded){
+        listCard= <div
+                id={id}
+                key={id}
+                sx={{ p: 1, boxShadow: 1, color:'white',fontSize:'48pt', width:'100%'}}
+                button
+                style={{
+                    borderRadius: '10px',margin: '0 auto',left:'2.5%',
+                    right:'2.5%',width:'95%', height:'550px', backgroundColor:'#a0b4bb94', marginBottom:'15px'
+                }}>
+                <Box sx={{ float:'left',paddingTop: '2%', paddingLeft: '1%',pp: 1, color:'white', display: 'inline-block', fontSize:'25pt'}}>
+                    {name}
+                    <Typography style={{marginTop:'20px'}}>
+                        Author: {author}
+                    </Typography>
+                    <Typography>
+                        Published: {date/*.Prototype.getDate() + date.Prototype.getDay() +date.Prototype.getFullYear()}*/}
+                    </Typography>
                 </Box>
-                <IconButton onClick={(event) => {handleDeleteList(event, id)}} aria-label='delete'>
-                    <DeleteIcon style={{fontSize:'40pt', color: 'white'}} />
-                </IconButton>
-                <ExpandMoreIcon onClick={(event) => {handleLoadList(event, id)}}style={{float:'right',fontSize:'40pt',color:'white'}}></ExpandMoreIcon>
-            </Box>
-        </div>
-    )
+                <Box style={{paddingTop:'2%',float:'right'}}>
+                    <Box style={{float:'left',marginRight:'550px',color:'white'}}>
+                        <div style={{display:'inline-block',marginRight:'20px'}}>
+                            <ThumbUpIcon id = {id} style={{fontSize:'40pt',display:'inline-block'}}onClick={addLike} ></ThumbUpIcon>
+                            {likes}
+                        </div>
+                        <div style={{display:'inline-block'}}>
+                            <ThumbDownIcon id={id}style={{fontSize:'40pt',display:'inline-block'}}onClick={addDislike}></ThumbDownIcon>
+                            {dislikes}
+                        </div>
+                    </Box>
+                    <IconButton onClick={(event) => {handleDeleteList(event, id)}} aria-label='delete'>
+                        <DeleteIcon style={{fontSize:'40pt', color: 'white'}} />
+                    </IconButton>
+                    <ExpandLessIcon onClick={(event) => {handleExpandList(event, id)}}style={{float:'right',fontSize:'40pt',color:'white'}}></ExpandLessIcon>
+                </Box>
+                <br></br>
+                <div style={{borderRadius: '10px',clear:'both',float:'left', width: '50%', height:'320px',marginTop:'1%',paddingTop:'1%',paddingBottom:'1%',marginLeft:'1%', backgroundColor:'#5f9cb4'}}>
+                    <EditIcon onMouseOver={handleHover}onMouseLeave={hoverReset}style={{color:'white', float:'right',marginRight:'2%', fontSize:'50px'}}></EditIcon>
+                    <div style={{paddingLeft:'1%',height:'20%',color:'white', fontSize:'50px'}}>1. {list.items[0]}</div>
+                    <div style={{paddingLeft:'1%',height:'20%',color:'white', fontSize:'50px'}}>2. {list.items[1]}</div>
+                    <div style={{paddingLeft:'1%',height:'20%',color:'white', fontSize:'50px'}}>3. {list.items[2]}</div>
+                    <div style={{paddingLeft:'1%',height:'20%',color:'white', fontSize:'50px'}}>4. {list.items[3]}</div>
+                    <div style={{paddingLeft:'1%',height:'20%',color:'white', fontSize:'50px'}}>5. {list.items[4]}</div>
+                </div>
+                <div style={{width:'40%',float:'right',height:'320px',marginTop:'1%'}}>
+                    COMMENTS
+                </div>
+            </div>
+    }
+    else{
+       listCard= <div
+                id={id}
+                key={id}
+                sx={{ p: 1, boxShadow: 1, color:'white',fontSize:'48pt', width:'100%'}}
+                button
+                style={{
+                    borderRadius: '10px',margin: '0 auto',left:'2.5%',
+                    right:'2.5%',width:'95%', height:'150px', backgroundColor:'#a0b4bb94', marginBottom:'15px'
+                }}>
+                <Box sx={{ float:'left',paddingTop: '2%', paddingLeft: '1%',pp: 1, color:'white', display: 'inline-block', fontSize:'25pt'}}>
+                    {name}
+                    <Typography style={{marginTop:'20px'}}>
+                        Author: {author}
+                    </Typography>
+                    <Typography>
+                        Published: {date/*.Prototype.getDate() + date.Prototype.getDay() +date.Prototype.getFullYear()}*/}
+                    </Typography>
+                </Box>
+                <Box style={{paddingTop:'2%',float:'right'}}>
+                    <Box style={{float:'left',marginRight:'550px',color:'white'}}>
+                        <div style={{display:'inline-block',marginRight:'20px'}}>
+                            <ThumbUpIcon id = {id} style={{fontSize:'40pt',display:'inline-block'}}onClick={addLike} ></ThumbUpIcon>
+                            {likes}
+                        </div>
+                        <div style={{display:'inline-block'}}>
+                            <ThumbDownIcon id={id}style={{fontSize:'40pt',display:'inline-block'}}onClick={addDislike}></ThumbDownIcon>
+                            {dislikes}
+                        </div>
+                    </Box>
+                    <IconButton onClick={(event) => {handleDeleteList(event, id)}} aria-label='delete'>
+                        <DeleteIcon style={{fontSize:'40pt', color: 'white'}} />
+                    </IconButton>
+                    <ExpandMoreIcon onClick={(event) => {handleExpandList(event, id)}}style={{float:'right',fontSize:'40pt',color:'white'}}></ExpandMoreIcon>
+                </Box>
+            </div>
+    }
+        return (
+            listCard
+        )
 }
 
 export default ListCard;

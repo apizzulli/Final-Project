@@ -1,0 +1,118 @@
+[{
+  "_id": {
+    "$oid": "61a99126fa46b16ac0b26670"
+  },
+  "top5Lists": [
+    {
+      "$oid": "61a997c1d3e9d678fa97f162"
+    },
+    {
+      "$oid": "61aad7812f9a9fa59568a466"
+    },
+    {
+      "$oid": "61ad4043c55d91f5f57aa21c"
+    },
+    {
+      "$oid": "61ad42bfc55d91f5f57aa26a"
+    },
+    {
+      "$oid": "61ad47edc55d91f5f57aa299"
+    },
+    {
+      "$oid": "61ad4e0a7a3153031a462d69"
+    },
+    {
+      "$oid": "61ad6bb660fa3b0f9bfa7fab"
+    },
+    {
+      "$oid": "61ad750060fa3b0f9bfa8102"
+    },
+    {
+      "$oid": "61ad750660fa3b0f9bfa810c"
+    },
+    {
+      "$oid": "61ad7c7a86eff814dc59e1df"
+    },
+    {
+      "$oid": "61ad7ce886eff814dc59e1e9"
+    },
+    {
+      "$oid": "61ad9493514600200c6f85fc"
+    },
+    {
+      "$oid": "61ad95d3514600200c6f8666"
+    },
+    {
+      "$oid": "61ae688ed20c0227abfdcabe"
+    },
+    {
+      "$oid": "61ae68a3d20c0227abfdcacc"
+    },
+    {
+      "$oid": "61ae68b4d20c0227abfdcadc"
+    },
+    {
+      "$oid": "61ae68bdd20c0227abfdcae6"
+    },
+    {
+      "$oid": "61ae6cd6d20c0227abfdcb08"
+    }
+  ],
+  "firstName": "anthony",
+  "lastName": "pizzulli",
+  "email": "ap@gmail.com",
+  "passwordHash": "$2a$10$kIiSpRv1ml5GBD8vOiU85e8p4K.MvoBwDvCY6OVW0xwlqpq1FSKiW",
+  "createdAt": {
+    "$date": "2021-12-03T03:38:14.327Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T20:04:38.775Z"
+  },
+  "__v": 20,
+  "communityLists": [
+    {
+      "$oid": "61aae756797a24af88de05df"
+    },
+    {
+      "$oid": "61ad6fcb60fa3b0f9bfa7fc5"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "61ad9c69514600200c6f87d9"
+  },
+  "top5Lists": [
+    {
+      "$oid": "61ad9e2a514600200c6f87f7"
+    }
+  ],
+  "communityLists": [],
+  "firstName": "sally",
+  "lastName": "sitwell",
+  "email": "ssitwell@gmail.com",
+  "passwordHash": "$2a$10$2SDPRiCZfa3fupaZR46t/OcBI3EscSWN5/ZxcAWawGTH/JcfbGHv.",
+  "createdAt": {
+    "$date": "2021-12-06T05:15:21.188Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T05:22:50.747Z"
+  },
+  "__v": 1
+},{
+  "_id": {
+    "$oid": "61ae70dcd20c0227abfdcb1f"
+  },
+  "top5Lists": [],
+  "communityLists": [],
+  "firstName": "olivia",
+  "lastName": "dickerson",
+  "email": "odick@gmail.com",
+  "passwordHash": "$2a$10$zApWiXQbUMLEyZ8iov1tR.uSkrP7LwUMRlNtXYX2PZDaq4im7XHvC",
+  "createdAt": {
+    "$date": "2021-12-06T20:21:48.887Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T20:21:48.887Z"
+  },
+  "__v": 0
+}]

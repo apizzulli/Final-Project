@@ -1,0 +1,209 @@
+[{
+  "_id": {
+    "$oid": "61ad9493514600200c6f85fc"
+  },
+  "items": [
+    "?",
+    "?",
+    "?",
+    "?",
+    "?"
+  ],
+  "name": "Untitled0",
+  "owner": "anthony pizzulli",
+  "ownerEmail": "ap@gmail.com",
+  "likes": 8,
+  "dislikes": 6,
+  "date": {
+    "$date": "2021-12-06T04:41:55.368Z"
+  },
+  "createdAt": {
+    "$date": "2021-12-06T04:41:55.404Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T20:22:21.524Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ad95d3514600200c6f8666"
+  },
+  "items": [
+    "?",
+    "?",
+    "?",
+    "?",
+    "?"
+  ],
+  "name": "Untitled0",
+  "owner": "anthony pizzulli",
+  "ownerEmail": "ap@gmail.com",
+  "likes": 25,
+  "dislikes": 10,
+  "date": {
+    "$date": "2021-12-06T04:47:15.584Z"
+  },
+  "createdAt": {
+    "$date": "2021-12-06T04:47:15.603Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T20:22:20.384Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ad9e2a514600200c6f87f7"
+  },
+  "items": [
+    "?",
+    "?",
+    "?",
+    "?",
+    "?"
+  ],
+  "name": "Untitled0",
+  "owner": "sally sitwell",
+  "ownerEmail": "ssitwell@gmail.com",
+  "likes": 0,
+  "dislikes": 0,
+  "date": {
+    "$date": "2021-12-06T05:22:50.719Z"
+  },
+  "createdAt": {
+    "$date": "2021-12-06T05:22:50.761Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T05:22:50.761Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae688ed20c0227abfdcabe"
+  },
+  "items": [
+    "?",
+    "?",
+    "?",
+    "?",
+    "?"
+  ],
+  "name": "Untitled0",
+  "owner": "anthony pizzulli",
+  "ownerEmail": "ap@gmail.com",
+  "likes": 0,
+  "dislikes": 0,
+  "date": {
+    "$date": "2021-12-06T19:46:22.421Z"
+  },
+  "createdAt": {
+    "$date": "2021-12-06T19:46:22.596Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T19:46:22.596Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae68a3d20c0227abfdcacc"
+  },
+  "items": [
+    "?",
+    "?",
+    "?",
+    "?",
+    "?"
+  ],
+  "name": "Untitled1",
+  "owner": "anthony pizzulli",
+  "ownerEmail": "ap@gmail.com",
+  "likes": 0,
+  "dislikes": 0,
+  "date": {
+    "$date": "2021-12-06T19:46:43.629Z"
+  },
+  "createdAt": {
+    "$date": "2021-12-06T19:46:43.652Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T19:46:43.652Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae68b4d20c0227abfdcadc"
+  },
+  "items": [
+    "?",
+    "?",
+    "?",
+    "?",
+    "?"
+  ],
+  "name": "Untitled2",
+  "owner": "anthony pizzulli",
+  "ownerEmail": "ap@gmail.com",
+  "likes": 0,
+  "dislikes": 0,
+  "date": {
+    "$date": "2021-12-06T19:47:00.495Z"
+  },
+  "createdAt": {
+    "$date": "2021-12-06T19:47:00.513Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T19:47:00.513Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae68bdd20c0227abfdcae6"
+  },
+  "items": [
+    "?",
+    "?",
+    "?",
+    "?",
+    "?"
+  ],
+  "name": "Untitled0",
+  "owner": "anthony pizzulli",
+  "ownerEmail": "ap@gmail.com",
+  "likes": 0,
+  "dislikes": 0,
+  "date": {
+    "$date": "2021-12-06T19:47:09.096Z"
+  },
+  "createdAt": {
+    "$date": "2021-12-06T19:47:09.116Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T19:47:09.116Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "61ae6cd6d20c0227abfdcb08"
+  },
+  "items": [
+    "?",
+    "?",
+    "?",
+    "?",
+    "?"
+  ],
+  "name": "Untitled0",
+  "owner": "anthony pizzulli",
+  "ownerEmail": "ap@gmail.com",
+  "likes": 0,
+  "dislikes": 0,
+  "date": {
+    "$date": "2021-12-06T20:04:38.741Z"
+  },
+  "createdAt": {
+    "$date": "2021-12-06T20:04:38.787Z"
+  },
+  "updatedAt": {
+    "$date": "2021-12-06T20:04:38.787Z"
+  },
+  "__v": 0
+}]
