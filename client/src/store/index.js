@@ -153,7 +153,7 @@ function GlobalStoreContextProvider(props) {
                     lists: store.lists,
                     currentList: payload,
                     newListCounter: store.newListCounter,
-                    isListNameEditActive: false,
+                    isListNameEditActive: true,
                     isItemEditActive: false,
                     listMarkedForDeletion: null
                 });
@@ -247,7 +247,7 @@ function GlobalStoreContextProvider(props) {
     store.createNewList = async function () {
         let newListName = "Untitled" + store.newListCounter;
         const response = await api.createTop5List(newListName, ["?", "?", "?", "?", "?"], auth.user.firstName+ " " +auth.user.lastName,
-                                                auth.user.email,0,0,new Date());
+                                                auth.user.email,new Date());
         console.log("createNewList response: " + response);
         if (response.status === 201) {
             tps.clearAllTransactions();
@@ -338,7 +338,6 @@ function GlobalStoreContextProvider(props) {
         let response = await api.getTop5ListById(id);
         if (response.status === 200) {
             let top5List = response.data.top5List;
-
             response = await api.updateTop5ListById(top5List._id, top5List);
             if (response.status === 200) {
                 storeReducer({

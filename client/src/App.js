@@ -8,6 +8,7 @@ import {
     AppToolbar,
     HomeWrapper,
     LoginScreen,
+    ListsScreen,
     RegisterScreen,
     Statusbar,
     WorkspaceScreen
@@ -28,15 +29,16 @@ const App = () => {
         <BrowserRouter>
             <AuthContextProvider>
                 <GlobalStoreContextProvider>              
-                    <AppBanner style={{backgroundColor:'black'}} />
+                    <AppBanner/>
                     <AppToolbar/>
                     <Switch>
                         <Route path="/" exact component={HomeWrapper} />
                         <Route path="/login/" exact component={LoginScreen} />
+                        <Route path="/home/" exact component = {ListsScreen}/>
                         <Route path="/register/" exact component={RegisterScreen} />
                         <Route path="/top5list/:id" exact component={WorkspaceScreen} />
                     </Switch>
-                    <Statusbar />
+                   
                 </GlobalStoreContextProvider>
             </AuthContextProvider>
         </BrowserRouter>

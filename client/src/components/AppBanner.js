@@ -56,6 +56,7 @@ export default function AppBanner() {
     );
     const loggedInMenu = 
         <Menu
+            style={{backgroundColor:'black'}}
             anchorEl={anchorEl}
             anchorOrigin={{
                 vertical: 'top',
@@ -92,7 +93,7 @@ export default function AppBanner() {
     }
 
     return (
-        <Box sx={{ flexGrow: 1 ,backgroundColor:'#3885a3'}}style={{}}>
+        <Box sx={{ flexGrow: 1 , color:'black'}}style={{backgroundColor:'black'}}>
             <AppBar position="static">
                 <Toolbar>
                     <Typography                        

@@ -5,7 +5,7 @@ import { Typography } from '@mui/material'
 import { GlobalStoreContext } from '../store/index.js'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
-
+import Statusbar from './Statusbar.js';
 
 /*
     This React component lets us edit a loaded list, which only
@@ -40,6 +40,7 @@ function WorkspaceScreen() {
     }
     return (
         <div id="top5-workspace">
+            <Statusbar></Statusbar>
             <div id="workspace-edit">
                 <div id="edit-numbering">
                     <div className="item-number"><Typography variant="h3">1.</Typography></div>
@@ -49,13 +50,14 @@ function WorkspaceScreen() {
                     <div className="item-number"><Typography variant="h3">5.</Typography></div>
                 </div>
                 {editItems}
+                <div id="save-and-publish-buttons">
+                    <Box>
+                        <Button style={{backgroundColor:'#5f9cb4'}}onClick={saveList}variant="contained">Save</Button>
+                        <Button style={{backgroundColor:'#5f9cb4'}}onClick={publishList}variant="contained">Publish</Button>
+                    </Box>
+                </div>
             </div>
-            <Box id="save-and-publish-buttons">
-                        <Button onClick={saveList}variant="contained">Save</Button>
-                        <Button onClick={publishList}variant="contained">Publish</Button>
-            </Box>
         </div>
-        
     )
 }
 
