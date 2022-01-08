@@ -18,13 +18,10 @@ const CommunityListSchema = new Schema(
                 "Civilization II",
                 "Super Mario World"
             ]*/
-        key: {type:Number, required: true},
         name: { type: String, required: true },
         likes: {type: Number, required:false},
         dislikes: {type: Number, required:false},
         createdDate: {type: Date, required: true},
-        modifiedDate: {type:Date,required: true},
-        accessedDate: {type: Date,required:true},
         items: { type: [String], required: true },
         ownerEmail: { type: String , required:true}
     },

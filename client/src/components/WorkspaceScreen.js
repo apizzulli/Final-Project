@@ -50,12 +50,12 @@ function WorkspaceScreen() {
                     <div className="item-number"><Typography variant="h3">5.</Typography></div>
                 </div>
                 {editItems}
-                <div id="save-and-publish-buttons">
+            </div>
+            <div id="save-and-publish-buttons">
                     <Box>
                         <Button style={{backgroundColor:'#5f9cb4'}}onClick={saveList}variant="contained">Save</Button>
                         <Button style={{backgroundColor:'#5f9cb4'}}onClick={publishList}variant="contained">Publish</Button>
                     </Box>
-                </div>
             </div>
         </div>
     )

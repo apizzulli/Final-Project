@@ -399,12 +399,9 @@ function GlobalStoreContextProvider(props) {
         console.log("publishing current list in store.index.js");
         let today = new Date();
         const response = await api.publishCommunityList(
-                            store.publishedListsCounter, 
                             store.currentList.name, 
                             0, 0, 
-                            today,today,today,
-                            store.currentList.items,
-                            store.currentList.ownerEmail );
+                            today, store.currentList.items,store.currentList.ownerEmail );
         if(response.status==200){
             storeReducer({
                 type: GlobalStoreActionType.PUBLISH_COMMUNITY_LIST,

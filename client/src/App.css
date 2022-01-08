@@ -125,9 +125,9 @@ body {
   font-size: 36pt;
 }
 #save-and-publish-buttons{
-  position:absolute;
   background-color: #3885a3;
-  top:0%;
+  clear:both;
+  display: inline-block;
 }
 #lists-screen{
   display: flex;

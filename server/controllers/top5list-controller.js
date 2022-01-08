@@ -217,7 +217,7 @@ publishCommunityList= (req,res) =>{
             errorMessage: 'Improperly formatted request',
         })
     }
-
+    
     const communityList = new CommunityList(body);
     console.log("creating communityList: " + JSON.stringify(communityList));
     if (!communityList) {
@@ -241,6 +241,7 @@ publishCommunityList= (req,res) =>{
                         })
                     })
                     .catch(error => {
+                        console.log(error);
                         return res.status(400).json({
                             errorMessage: 'Community List Not Created!'
                         })

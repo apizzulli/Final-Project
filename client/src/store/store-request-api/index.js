@@ -42,15 +42,12 @@ export const updateTop5ListById = (id, top5List) => {
         top5List : top5List
     })
 }
-export const publishCommunityList=(key,name,likes,dislikes,createdDate,modifiedDate,accessedDate,items,ownerEmail)=>{
+export const publishCommunityList=(name,likes,dislikes,createdDate,items,ownerEmail)=>{
     return api.post(`/communityList/`,{
-        key: key,
         name: name,
         likes: likes,
         dislikes: dislikes,
         createdDate: createdDate,
-        modifiedDate: modifiedDate,
-        accessedDate: accessedDate,
         items: items,
         ownerEmail: ownerEmail
     })
