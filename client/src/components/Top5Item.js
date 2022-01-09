@@ -114,7 +114,7 @@ function Top5Item(props) {
             >
             <Box sx={{ p: 1 }}>
                 <IconButton onClick={handleToggleEdit} aria-label='edit'>
-                    <EditIcon style={{fontSize:'48pt'}}  />
+                    <EditIcon style={{fontSize:'48pt', color:'white'}}  />
                 </IconButton>
             </Box>
                 <Box sx={{ p: 1, flexGrow: 1 }}>{props.text}</Box>

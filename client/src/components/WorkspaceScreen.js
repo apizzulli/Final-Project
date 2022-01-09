@@ -6,6 +6,8 @@ import { GlobalStoreContext } from '../store/index.js'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
 import Statusbar from './Statusbar.js';
+import EditIcon from '@mui/icons-material/Edit';
+
 
 /*
     This React component lets us edit a loaded list, which only
@@ -52,10 +54,8 @@ function WorkspaceScreen() {
                 {editItems}
             </div>
             <div id="save-and-publish-buttons">
-                    <Box>
-                        <Button style={{backgroundColor:'#5f9cb4'}}onClick={saveList}variant="contained">Save</Button>
-                        <Button style={{backgroundColor:'#5f9cb4'}}onClick={publishList}variant="contained">Publish</Button>
-                    </Box>
+                <Button style={{fontSize:'30pt',backgroundColor:'#5f9cb4', width:'50%', height:'100%'}}onClick={saveList}variant="contained">Save</Button>
+                <Button style={{fontSize:'30pt',backgroundColor:'#5f9cb4', width:'50%', height:'100%'}}onClick={publishList}variant="contained">Publish</Button>
             </div>
         </div>
     )

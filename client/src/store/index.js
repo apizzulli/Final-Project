@@ -411,7 +411,7 @@ function GlobalStoreContextProvider(props) {
         else
             console.log("failed to publish list");
     }
-    /*
+    
     store.changeListName = async function (id, newName) {
         let response = await api.getTop5ListById(id);
         if (response.status === 200) {
@@ -438,7 +438,7 @@ function GlobalStoreContextProvider(props) {
             }
             updateList(top5List);
         }
-    }*/
+    }
     store.addLike= async function(id){
         let response =await api.getTop5ListById(id);
         if(response.status==200){

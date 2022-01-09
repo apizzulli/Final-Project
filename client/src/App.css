@@ -42,7 +42,6 @@ body {
 
 #app-toolbar{
   background-color: var(--swatch-primary);
-  margin-bottom: 1%;
 }
 
 #welcome-screen {
@@ -109,7 +108,7 @@ body {
   left: 0%;
   top: 10%;
   width: 100%;
-  margin-top: 2%;
+  margin-top: 1.5%;
   height: 65%;
   background-color: var(--swatch-accent);
 }
@@ -125,9 +124,11 @@ body {
   font-size: 36pt;
 }
 #save-and-publish-buttons{
+  margin-top: .5%;
   background-color: #3885a3;
-  clear:both;
-  display: inline-block;
+  height:75px;
+  width: 100%;
+  position:absolute;
 }
 #lists-screen{
   display: flex;
@@ -196,6 +197,7 @@ body {
 #workspace-home,
 #workspace-edit {
   position: absolute;
+  margin-top: 5%;
   left: 0%;
   top: 0%;
   width: 100%;
@@ -214,7 +216,7 @@ body {
 
 #edit-items {
   position: absolute;
-  margin-top: 4%;
+  margin-top: 5%;
   left: 20%;
   top: 0%;
   width: 80%;
