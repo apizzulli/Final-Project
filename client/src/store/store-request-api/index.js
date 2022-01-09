@@ -52,6 +52,7 @@ export const publishCommunityList=(name,likes,dislikes,createdDate,items,ownerEm
         ownerEmail: ownerEmail
     })
 }
+export const getCommunityLists=()=>api.get(`/communityLists/`)
 export const addLike=(id,top5List)=>{
     return api.put(`/addLike/${id}`,{
         top5List: top5List
@@ -62,7 +63,7 @@ export const addDislike=(id,top5List)=>{
         top5List: top5List
     })
 }
-export const getCommunityList=(id)=>api.get(`/top5list/${id}`)
+export const getCommunityList=(id)=>api.get(`/communityList/${id}`)
 
 const apis = {
     createTop5List,
@@ -72,6 +73,7 @@ const apis = {
     getTop5ListPairs,
     updateTop5ListById,
     getCommunityList,
+    getCommunityLists,
     publishCommunityList,
     addLike,
     addDislike

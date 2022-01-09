@@ -342,6 +342,19 @@ addDislike = async (req, res) => {
         asyncFindUser(top5List);
     })
 }
+getCommunityLists=(req,res)=>{
+    CommunityList.find({}, (err, communityLists) => {
+        if (err) {
+            return res.status(400).json({ success: false, error: err })
+        }
+        if (!communityLists.length) {
+            return res
+                .status(404)
+                .json({ success: false, error: `Community Lists not found` })
+        }
+        return res.status(200).json({ success: true, data: communityLists })
+    }).catch(err => console.log(err))
+}
 getCommunityList=(req,res)=>{
     CommunityList.findOne({ _id: req.params.id }, (err, communityList) => {
         console.log("communityList found: " + JSON.stringify(communityList));
@@ -370,5 +383,6 @@ module.exports = {
     publishCommunityList,
     addLike,
     addDislike,
-    getCommunityList
+    getCommunityList,
+    getCommunityLists
 }

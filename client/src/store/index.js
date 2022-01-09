@@ -267,9 +267,14 @@ function GlobalStoreContextProvider(props) {
     }
    store.loadLists=async function(){
         const response = await api.getTop5Lists();
+        const response2 = await api.getCommunityLists();
         if(response.status==200){
-            let lists=response.data.data;
-            console.log("loaded lists: "+lists);
+            let top5Lists=response.data.data;
+            let communityLists;
+            if(response2.status==200){
+                communityLists=response2.data.data;
+            }
+            let lists=top5Lists.concat(communityLists);
             storeReducer({
                 type: GlobalStoreActionType.LOAD_LISTS,
                 payload: lists
@@ -278,6 +283,9 @@ function GlobalStoreContextProvider(props) {
         else{
             console.log("API FAILED TO GET THE LISTS");
         }
+    }
+    store.loadCommLists=async function(){
+        const response = await api.getCommunityLists();
     }
     // THIS FUNCTION LOADS ALL THE ID, NAME PAIRS SO WE CAN LIST ALL THE LISTS
     store.loadIdNamePairs = async function () {
@@ -316,7 +324,8 @@ function GlobalStoreContextProvider(props) {
         let response = await api.deleteTop5ListById(listToDelete._id);
         if (response.status === 200) {
             store.loadIdNamePairs();
-            history.push("/");
+            store.loadLists();
+            history.push("/home");
         }
     }
     store.deleteMarkedList = function () {

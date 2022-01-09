@@ -22,7 +22,9 @@ function WorkspaceScreen() {
         store.updateCurrentList();
     }
     const publishList=()=>{
+        store.deleteList(store.currentList);//Delete the top5list and publish it as a community list
         store.publishCommunityList();
+        store.loadLists();
     }
 
     let editItems = "";
@@ -54,8 +56,8 @@ function WorkspaceScreen() {
                 {editItems}
             </div>
             <div id="save-and-publish-buttons">
-                <Button style={{fontSize:'30pt',backgroundColor:'#5f9cb4', width:'50%', height:'100%'}}onClick={saveList}variant="contained">Save</Button>
-                <Button style={{fontSize:'30pt',backgroundColor:'#5f9cb4', width:'50%', height:'100%'}}onClick={publishList}variant="contained">Publish</Button>
+                <Button style={{fontSize:'30pt',backgroundColor:'#a0b4bba8', width:'50%', height:'100%'}}onClick={saveList}variant="contained">Save</Button>
+                <Button style={{fontSize:'30pt',backgroundColor:'#a0b4bba8', width:'50%', height:'100%'}}onClick={(id)=>publishList(id)}variant="contained">Publish</Button>
             </div>
         </div>
     )

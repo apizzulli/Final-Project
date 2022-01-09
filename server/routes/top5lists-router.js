@@ -12,5 +12,6 @@ router.put('/top5list/:id', auth.verify, Top5ListController.updateTop5List)
 router.post('/communityList',auth.verify, Top5ListController.publishCommunityList)
 router.put('/addLike/:id',auth.verify, Top5ListController.addLike)
 router.put('/addDislike/:id',auth.verify,Top5ListController.addDislike)
+router.get('/communityLists', auth.verify,Top5ListController.getCommunityLists)
 router.get('/communityList/:id',auth.verify,Top5ListController.getCommunityList)
 module.exports = router

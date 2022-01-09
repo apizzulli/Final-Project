@@ -35,7 +35,8 @@ const ListsScreen = () => {
     }
     let listCard = "";
     if(store.lists){
-        console.log("line 49, listsScreen: "+store.lists);
+        console.log("line 49, listsScreen: "+store.lists.size);
+        console.log(store.lists.size);
        // console.log(store.lists[1].name);
     }
         listCard=
